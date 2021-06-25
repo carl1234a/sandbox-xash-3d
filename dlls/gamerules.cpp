@@ -323,6 +323,9 @@ void CGameRules::RefreshSkillData ( void )
 
 	// RPG
 	gSkillData.plrDmgRPG = GetSkillCvar( "sk_plr_rpg" );
+	
+	//flamethrower
+        gSkillData.plrDmgFlamethrower = GetSkillCvar( "sk_plr_flamethrower");
 
 	// Gauss gun
 	gSkillData.plrDmgGauss = GetSkillCvar( "sk_plr_gauss" );

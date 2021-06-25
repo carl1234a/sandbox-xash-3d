@@ -55,6 +55,8 @@ DLL_GLOBAL	short g_sModelIndexSpore3; // holds the index for the spore explosion
 DLL_GLOBAL	short g_sModelIndexBigSpit; // holds the index for the bullsquid big spit.
 DLL_GLOBAL	short g_sModelIndexTinySpit; // holds the index for the bullsquid tiny spit.
 
+DLL_GLOBAL      short g_sModelIndexFlame;// Flamethrower flame
+
 ItemInfo CBasePlayerItem::ItemInfoArray[MAX_WEAPONS];
 AmmoInfo CBasePlayerItem::AmmoInfoArray[MAX_AMMO_SLOTS];
 
@@ -379,6 +381,10 @@ void W_Precache( void )
 	
 	//CS PHYSGUN WEAPON
 	UTIL_PrecacheOtherWeapon( "weapon_physgun" );
+	
+	// Flamethrower
+        UTIL_PrecacheOtherWeapon( "weapon_flamethrower" );
+        UTIL_PrecacheOther( "ammo_fuel" );
 
 	// egon
 	UTIL_PrecacheOtherWeapon( "weapon_egon" );
@@ -434,6 +440,8 @@ void W_Precache( void )
 
 	g_sModelIndexLaser = PRECACHE_MODEL( g_pModelNameLaser );
 	g_sModelIndexLaserDot = PRECACHE_MODEL( "sprites/laserdot.spr" );
+	g_sModelIndexFireball = PRECACHE_MODEL ("sprites/zerogxplode.spr");// fireball
+	g_sModelIndexFlame = PRECACHE_MODEL ("sprites/flame.spr");// Flamethrower
 
 	// used by explosions
 	PRECACHE_MODEL( "models/grenade.mdl" );
@@ -460,6 +468,7 @@ void W_Precache( void )
 
 	g_sModelIndexBigSpit = PRECACHE_MODEL( "sprites/bigspit.spr" );
 	g_sModelIndexTinySpit = PRECACHE_MODEL( "sprites/tinyspit.spr" );
+	
 
 	PRECACHE_SOUND( "weapons/splauncher_impact.wav" );//explosion aftermaths
 

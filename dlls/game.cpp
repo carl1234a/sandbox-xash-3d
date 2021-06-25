@@ -336,6 +336,12 @@ cvar_t	sk_plr_rpg2 = {"sk_plr_rpg2","0"};
 cvar_t	sk_plr_rpg3 = {"sk_plr_rpg3","0"};
 
 
+// Flamethrower
+cvar_t sk_plr_flamethrower1 = {"sk_plr_flamethrower1","0"};
+cvar_t sk_plr_flamethrower2 = {"sk_plr_flamethrower2","0"};
+cvar_t sk_plr_flamethrower3 = {"sk_plr_flamethrower3","0"};
+
+
 // Zero Point Generator
 cvar_t	sk_plr_gauss1 = {"sk_plr_gauss1","0"};
 cvar_t	sk_plr_gauss2 = {"sk_plr_gauss2","0"};
@@ -793,6 +799,11 @@ void GameDLLInit( void )
 	CVAR_REGISTER( &sk_plr_rpg1 );// {"sk_plr_rpg1","0"};
 	CVAR_REGISTER( &sk_plr_rpg2 );// {"sk_plr_rpg2","0"};
 	CVAR_REGISTER( &sk_plr_rpg3 );// {"sk_plr_rpg3","0"};
+	
+	//Flamethrower
+        CVAR_REGISTER ( &sk_plr_flamethrower1 );// {"sk_plr_flamethrower1","0"};
+        CVAR_REGISTER ( &sk_plr_flamethrower2 );// {"sk_plr_flamethrower2","0"};
+        CVAR_REGISTER ( &sk_plr_flamethrower3 );// {"sk_plr_flamethrower3","0"};
 
 	// Gauss Gun
 	CVAR_REGISTER( &sk_plr_gauss1 );// {"sk_plr_gauss1","0"};

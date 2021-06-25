@@ -199,6 +199,8 @@ LOCAL_SRC_FILES := agrunt.cpp airtank.cpp \
 	   superchav.cpp \
 	   blackscary.cpp \
 	   physgun.cpp \
+	   flamethrower.cpp \
+	   flame.cpp \
 	   grapple.cpp
 #	   ../game_shared/voice_gamemgr.cpp
 

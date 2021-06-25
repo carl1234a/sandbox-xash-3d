@@ -359,6 +359,7 @@ public:
 	int ammo_bolts;
 	int ammo_buckshot;
 	int ammo_rockets;
+	int ammo_fuel;
 	int ammo_uranium;
 	int ammo_hornets;
 	int ammo_argrens;

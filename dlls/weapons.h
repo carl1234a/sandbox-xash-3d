@@ -111,6 +111,7 @@ public:
 #define WEAPON_XM1014			38
 #define WEAPON_MOLOTOV			39
 #define WEAPON_PHYSGUN			40
+#define WEAPON_FLAMETHROWER 41
 #define WEAPON_SNIPERRIFLE		63
 
 #define WEAPON_ALLWEAPONS		(~(1<<WEAPON_SUIT))
@@ -129,6 +130,7 @@ public:
 #define SHOTGUN_WEIGHT		16
 #define CROSSBOW_WEIGHT		10
 #define RPG_WEIGHT			20
+#define FLAMETHROWER_WEIGHT 40
 #define GAUSS_WEIGHT		21
 #define EGON_WEIGHT			19
 #define HORNETGUN_WEIGHT	10
@@ -155,6 +157,7 @@ public:
 #define BUCKSHOT_MAX_CARRY		125
 #define BOLT_MAX_CARRY			50
 #define ROCKET_MAX_CARRY		5
+#define _FUEL_MAX_CARRY 250
 #define HANDGRENADE_MAX_CARRY	10
 #define SATCHEL_MAX_CARRY		5
 #define TRIPMINE_MAX_CARRY		5
@@ -478,6 +481,8 @@ extern DLL_GLOBAL	short	g_sModelIndexSpore3;
 
 extern DLL_GLOBAL  	short	g_sModelIndexBigSpit;
 extern DLL_GLOBAL  	short	g_sModelIndexTinySpit;
+extern DLL_GLOBAL       short   g_sModelIndexFireball;// holds the index for the fireball
+extern DLL_GLOBAL       short   g_sModelIndexFlame;// flame
 
 extern void ClearMultiDamage(void);
 extern void ApplyMultiDamage(entvars_t* pevInflictor, entvars_t* pevAttacker );
@@ -1396,6 +1401,31 @@ private:
 	int m_iShell;
 
 	unsigned short m_usEagle;
+};
+
+class CFlame : public CBaseMonster
+{
+   public:
+   static CFlame *ShootFlame( entvars_t *pevOwner, Vector vecStart, Vector vecVelocity );
+
+   void Spawn( void );
+   void Explode( Vector vecSrc, Vector vecAim );
+   void Explode( TraceResult *pTrace, int bitsDamageType );
+   void EXPORT Smoke( void );
+
+   void EXPORT BounceTouch( CBaseEntity *pOther );
+   void EXPORT SlideTouch( CBaseEntity *pOther );
+   void EXPORT ExplodeTouch( CBaseEntity *pOther );
+   void EXPORT DangerSoundThink( void );
+   void EXPORT PreDetonate( void );
+   void EXPORT Detonate( void );
+   void EXPORT DetonateUse( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value );
+
+   virtual void BounceSound( void );
+   virtual int BloodColor( void ) { return DONT_BLEED; }
+   virtual void Killed( entvars_t *pevAttacker, int iGib );
+
+   BOOL m_fRegisteredSound;
 };
 
 class CSporelauncher : public CShotgun
