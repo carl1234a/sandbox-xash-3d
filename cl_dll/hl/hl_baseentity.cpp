@@ -99,6 +99,14 @@ CGrenade *CGrenade::ShootTimed( entvars_t *pevOwner, Vector vecStart, Vector vec
 CGrenade *CGrenade::ShootContact( entvars_t *pevOwner, Vector vecStart, Vector vecVelocity ){ return 0; }
 void CGrenade::DetonateUse( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value ){ }
 
+// CFlame
+void CFlame::BounceSound( void ) { }
+void CFlame::Explode( Vector, Vector ) { }
+void CFlame::Explode( TraceResult *, int ) { }
+void CFlame::Killed( entvars_t *, int ) { }
+void CFlame::Spawn( void ) { }
+CFlame*CFlame::ShootFlame( entvars_t *pevOwner, Vector vecStart, Vector vecVelocity ){ }
+
 void UTIL_Remove( CBaseEntity *pEntity ){ }
 struct skilldata_t gSkillData;
 void UTIL_SetSize( entvars_t *pev, const Vector &vecMin, const Vector &vecMax ){ }
