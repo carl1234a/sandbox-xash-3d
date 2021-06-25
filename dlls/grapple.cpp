@@ -133,6 +133,10 @@ const char *grapple_medium[] =
 	"monster_skeleton",
 	"monster_blackscary",
 	"monster_superchav",
+	"monster_mariozombie",
+	"monster_shocktrooper",
+	"monster_alien_voltigore",
+	"monster_alien_babyvoltigore",
 };
 
 const char *grapple_large[] = 
