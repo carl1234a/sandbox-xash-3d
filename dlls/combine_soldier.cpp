@@ -278,7 +278,7 @@ void CCSoldier::GibMonster( void )
 	Vector vecGunPos;
 	Vector vecGunAngles;
 
-	if( GetBodygroup( 2 ) != 2 )
+	if( GetBodygroup( 2 ) != 3 )
 	{
 		// throw a gun if the grunt has one
 		GetAttachment( 0, vecGunPos, vecGunAngles );
@@ -289,11 +289,12 @@ void CCSoldier::GibMonster( void )
 		{
 			pGun = DropItem( "weapon_shotgun", vecGunPos, vecGunAngles );
 		}
-		else
+	        else
 		{
 			pGun = DropItem( "weapon_9mmAR", vecGunPos, vecGunAngles );
+			pGun = DropItem( "weapon_ar2", vecGunPos, vecGunAngles );
 		}
-
+		
 		if( pGun )
 		{
 			pGun->pev->velocity = Vector( RANDOM_FLOAT( -100, 100 ), RANDOM_FLOAT( -100, 100 ), RANDOM_FLOAT( 200, 300 ) );
