@@ -676,7 +676,7 @@ void CFriendly::Spawn()
 	pev->movetype = MOVETYPE_STEP;
 	m_bloodColor = BLOOD_COLOR_GREEN;
 	pev->effects = 0;
-	pev->health = 150;
+	pev->health = 200;
 	m_flFieldOfView = 0.2;
 	m_MonsterState = MONSTERSTATE_NONE;
 
