@@ -62,12 +62,12 @@ void CCow :: Spawn()
 		SET_MODEL(ENT(pev), "models/cow.mdl");
 	UTIL_SetSize( pev, Vector( -48, -16, 0 ), Vector( 48, 16, 72 ) );
 
-	pev->solid			= SOLID_SLIDEBOX;
+	pev->solid		= SOLID_SLIDEBOX;
 	pev->movetype		= MOVETYPE_STEP;
 	m_bloodColor		= BLOOD_COLOR_RED;
 	pev->effects		= 0;
 	if (pev->health == 0)
-		pev->health			= 20;
+		pev->health	= 20;
 	m_flFieldOfView		= 0.5;// indicates the width of this monster's forward view cone ( as a dotproduct result )
 	m_MonsterState		= MONSTERSTATE_NONE;
 

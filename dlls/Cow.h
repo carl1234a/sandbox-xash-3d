@@ -10,15 +10,15 @@ public:
 	void Killed( entvars_t *pevAttacker, int iGib );
 	void IdleSound( void );
 
-	int		Classify ( void );
+	int  Classify ( void );
 	
 	virtual int HasCustomGibs( void ) { return m_iszGibModel; }
+
+	virtual int Save( CSave &save );
+	virtual int Restore( CRestore &restore );
+	static	TYPEDESCRIPTION m_SaveData[];
 	
 	int m_iszGibModel;
-
-	virtual int		Save( CSave &save );
-	virtual int		Restore( CRestore &restore );
-	static	TYPEDESCRIPTION m_SaveData[];
 };
 
 

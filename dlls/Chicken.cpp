@@ -26,8 +26,8 @@
 
 #define		CHICKEN_IDLE				0
 #define		CHICKEN_BORED				1
-#define		CHICKEN_SCARED_BY_ENT		2
-#define		CHICKEN_EAT					3
+#define		CHICKEN_SCARED_BY_ENT			2
+#define		CHICKEN_EAT				3
 #define		CHICKEN_CROW				4
 
 //=========================================================
@@ -69,13 +69,13 @@ void CChickenFeathers :: Spawn( )
 		SET_MODEL(ENT(pev),	"models/feathers.mdl");
 
 	pev->movetype	= MOVETYPE_NONE;
-	pev->solid		= SOLID_NOT;
-	pev->health		= 80000;
+	pev->solid	= SOLID_NOT;
+	pev->health	= 80000;
 	pev->takedamage = DAMAGE_AIM;
-	pev->effects		= 0;
-	pev->yaw_speed		= 0;
-	pev->sequence		= 0;
-	pev->frame			= 0;
+	pev->effects	= 0;
+	pev->yaw_speed	= 0;
+	pev->sequence	= 0;
+	pev->frame	= 0;
 
 //	pev->nextthink += 1.0;
 //	SetThink (WalkMonsterDelay);
@@ -84,7 +84,7 @@ void CChickenFeathers :: Spawn( )
 	pev->frame = 0;
 	MonsterInit();
 	// so it doesn't get affected by things...
-	pev->deadflag		= DEAD_DEAD;
+	pev->deadflag	= DEAD_DEAD;
 }
 
 //=========================================================
@@ -153,11 +153,11 @@ void CChicken :: Spawn()
 		SET_MODEL(ENT(pev), "models/chicken.mdl");
 	UTIL_SetSize( pev, Vector( -8, -8, 0 ), Vector( 8, 8, 8 ) );
 
-	pev->solid			= SOLID_SLIDEBOX;
+	pev->solid		= SOLID_SLIDEBOX;
 	pev->movetype		= MOVETYPE_STEP;
 	m_bloodColor		= BLOOD_COLOR_RED;
 	pev->effects		= 0;
-	pev->health			= 4;
+	pev->health		= 4;
 	m_flFieldOfView		= 0.5;// indicates the width of this monster's forward view cone ( as a dotproduct result )
 	m_MonsterState		= MONSTERSTATE_NONE;
 
@@ -166,7 +166,7 @@ void CChicken :: Spawn()
 
 	pev->view_ofs		= Vector ( 0, 0, 1 );// position of the eyes relative to monster's origin.
 	pev->takedamage		= DAMAGE_YES;
-	m_iMode				= CHICKEN_IDLE;
+	m_iMode			= CHICKEN_IDLE;
 	m_flNextSmellTime	= gpGlobals->time;
 }
 
