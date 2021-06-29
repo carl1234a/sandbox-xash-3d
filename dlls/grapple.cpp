@@ -91,6 +91,7 @@ const char *grapple_small[] =
 	"monster_satchel",
 	"monster_tripmine",
 	"grenade"
+	"barrel",
 };
 
 const char *grapple_medium[] = 
@@ -137,6 +138,9 @@ const char *grapple_medium[] =
 	"monster_shocktrooper",
 	"monster_alien_voltigore",
 	"monster_alien_babyvoltigore",
+	"monster_friendly",
+	"monster_combine_soldier",
+	"monster_panthereye",
 };
 
 const char *grapple_large[] = 
