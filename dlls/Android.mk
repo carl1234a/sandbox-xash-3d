@@ -201,6 +201,8 @@ LOCAL_SRC_FILES := agrunt.cpp airtank.cpp \
 	   physgun.cpp \
 	   flamethrower.cpp \
 	   flame.cpp \
+	   friendly.cpp \
+	   panthereye.cpp \
 	   grapple.cpp
 #	   ../game_shared/voice_gamemgr.cpp
 
