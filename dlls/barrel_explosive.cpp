@@ -6,9 +6,9 @@
 #include        "soundent.h"
 #include        "gamerules.h"
 #include        "animation.h"
-#include "../engine/studio.h"
-#include "particle_defs.h"
-#include "decals.h"
+#include 	"../engine/studio.h"
+#include 	"particle_defs.h"
+#include 	"decals.h"
 
 extern int gmsgParticles;
 
@@ -17,20 +17,21 @@ class CBarrel : public CBaseMonster
 public:
         void Spawn( void );
         void Precache( void );
-        int      Classify ( void );
-        void Explode( Vector vecSrc, Vector vecAim );
-	void Explode( TraceResult *pTrace, int bitsDamageType );
-	void	Detonate( void );
+        int  Classify ( void );
+        void Boom( Vector vecSrc, Vector vecAim ); // I rename from Explode to Boom, ok?
+	void Explode( TraceResult *pTrace, int bitsDamageType ); // 2 functions with 1 name???
+	void Detonate( void );
         void SetActivity(int activity);                                 
         int  GetActivity() { return m_Activity; }
         void SetCollisionBox();
-		void EXPORT WaitTillDead ( void );
-		void  Killed( entvars_t *pevAttacker, int iGib );
+	void EXPORT WaitTillDead ( void );
+	void Killed( entvars_t *pevAttacker, int iGib );
         void EXPORT IdleThink();
-       int BloodColor( void ) { return DONT_BLEED; }
-        int m_Activity;                                                                 //What entity is doing (animation)//
-		int TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType );
-		float  f_NextBurnTime;
+       	int  BloodColor( void ) { return DONT_BLEED; }                                                                 //What entity is doing (animation)//
+	int  TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType );
+	
+	float f_NextBurnTime;
+	int   m_Activity;
         
 };
 LINK_ENTITY_TO_CLASS(barrel, CBarrel);
@@ -60,7 +61,7 @@ void CBarrel::Precache(void)
         PRECACHE_MODEL("models/gomod/dynamite.mdl");
 }
 
-int     CBarrel::Classify(void)
+int  CBarrel::Classify(void)
 
 {
         
@@ -119,21 +120,16 @@ void CBarrel::IdleThink()
                 SetTouch(NULL);
                 UTIL_Remove(this);
                 return;
-        }
-
+        }  
+	
         if(pev->deadflag != DEAD_DEAD)
         {
                 //SetActivity(ACT_IDLE);
-
-                
- 
         }
-
         else
         {
                 UTIL_SetSize(pev,Vector(0,0,0),Vector(0,0,0));
         }
-
 
  pev->nextthink = gpGlobals->time + 0.1;
 	
@@ -152,14 +148,8 @@ int CBarrel:: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float
 		flDamage *= 0.3;
 	}
 			
-
-
-	
-	
-
-
 	// HACK HACK -- until we fix this.
-///	if ( IsAlive() )
+//	if ( IsAlive() )
 
 	return CBaseMonster::TakeDamage( pevInflictor, pevAttacker, flDamage, bitsDamageType );
 }
@@ -204,7 +194,9 @@ void CBarrel :: WaitTillDead ( void )
 	}
 }
 
-void CBarrel::Explode( Vector vecSrc, Vector vecAim )
+// uh?
+// I rename from Explode to Boom, ok?
+void CBarrel::Boom( Vector vecSrc, Vector vecAim )
 {
 	TraceResult tr;
 	UTIL_TraceLine ( pev->origin, pev->origin + Vector ( 0, 0, -32 ),  ignore_monsters, ENT(pev), & tr);
@@ -303,14 +295,6 @@ void CBarrel::Explode( TraceResult *pTrace, int bitsDamageType )
 			Create( "spark_shower", pev->origin, pTrace->vecPlaneNormal, NULL );
 	}
 }
-
-
-
-
-
-
-
-
 
 void CBarrel::Detonate( void )
 {
